@@ -1,0 +1,93 @@
+/******************************************************************************
+
+Diplomado IoT.
+Programa: Calcula sumas, resta, multiplicaciones y divisiones.
+Programador: Fabián L.
+Fecha: 10 de agosto de 2021.
+UAM-L
+
+*******************************************************************************/
+// Bibliotecas
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    // Declaración de variables
+    int opc=0, op=0;
+    float valor1=0.00, valor2=0.00;
+    
+    printf("******************************* Calculadora *******************************\n");
+    printf("\n");
+    printf("Instrucciones:\n");
+    printf("1. Seleccione el número correspondiente a la operación que quiera realizar.\n ");
+    printf("2. Ingrese dos números para realizar las operaciones.\n");
+    printf("\n");
+    
+    //inicio:
+    menu:
+    printf("********************** ¿Qué operación deseas hacer? **********************\n");
+        printf("1. Suma.\n");
+        printf("2. Resta.\n");
+        printf("3. Multiplicación.\n");
+        printf("4. División.\n");
+        printf("0. Salir.\n");
+        scanf("%d", &opc);
+        
+        if(opc==0){
+           goto fin; 
+        };
+        
+        printf("************************ Ingrese el primer valor ************************ \n ");
+        scanf(" %f", &valor1);
+        printf("************************ Ingrese el segundo valor *********************** \n ");
+        scanf(" %f", &valor2);
+        printf("\n");
+        
+        
+        if(opc==1){
+            goto suma;
+        };
+        if(opc==2){
+            goto resta; 
+        };
+        if(opc==3){
+            goto multi;
+        };
+        if(opc==4){
+            goto divi;
+        }printf("************************ No escogiste ninguna operación ************************ \n ");
+        goto menu;
+    
+    suma:
+            printf("****************************** RESULTADO ******************************\n");
+            printf("El resultado es: %f \n", valor1 + valor2);
+            goto otra;
+    resta:
+            printf("****************************** RESULTADO ******************************\n");
+            printf("El resultado es: %f \n", valor1 - valor2);
+            goto otra;
+    multi:
+            printf("****************************** RESULTADO ******************************\n");
+            printf("El resultado es: %f \n", valor1 * valor2);
+            goto otra;
+    divi:
+            printf("****************************** RESULTADO ******************************\n");
+            printf("El resultado es: %f \n", valor1 / valor2);
+            goto otra;
+    otra:
+            printf("Desea hacer otra operación\n");
+            printf("1. Si.\n");
+            printf("0. No.\n");
+            scanf("%d", &op);
+            if (op!=1){
+                goto fin;
+            }else{
+                goto menu;
+            };
+    fin:
+            printf("Fin del programa. (°u°)/ \n");
+
+    return 0;
+}
